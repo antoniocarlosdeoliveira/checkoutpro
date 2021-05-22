@@ -7,7 +7,7 @@ mercadopago.configurations.setAccessToken("YOUR_ACCESS_TOKEN");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("../../client"));
+app.use(express.static("./client"));
 
 app.get("/", function (req, res) {
   res.status(200).sendFile("index.html");
@@ -22,9 +22,9 @@ app.post("/create_preference", (req, res) => {
 			quantity: Number(req.body.quantity),
 		}],
 		back_urls: {
-			"success": "http://localhost:8080/feedback",
-			"failure": "http://localhost:8080/feedback",
-			"pending": "http://localhost:8080/feedback"
+			"success": "http://localhost:3000/feedback",
+			"failure": "http://localhost:3000/feedback",
+			"pending": "http://localhost:3000/feedback"
 		},
 		auto_return: 'approved',
 	};
